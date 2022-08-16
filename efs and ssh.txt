@@ -1,0 +1,5 @@
+ssh -i "C:\Users\ODISH\Downloads\ec2keys1.pem" ec2-user@ec2-54-165-40-218
+
+54.165.40.218
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0f32eb223d10ad721.efs.us-east-1.amazonaws.com:/ efs
