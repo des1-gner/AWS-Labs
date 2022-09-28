@@ -1,0 +1,8 @@
+﻿Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),,Amazon EC2,0,20.79,249.48,USD,"Operating system (Linux), Quantity (1), Pricing strategy (On-Demand Instances), Storage amount (40 GB), Instance type (t2.small)"
+My Estimate,US East (N. Virginia),,Amazon RDS for MariaDB,0,29.42,353.04,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (20 GB per month), Quantity (1), Instance type (db.t3.micro), Utilization (On-Demand only) (100 %Utilized/Month), Deployment selection (Multi-AZ), Pricing strategy (OnDemand)"
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."

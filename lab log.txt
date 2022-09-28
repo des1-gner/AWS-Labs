@@ -1,0 +1,130 @@
+MomPopCafeInstance Instance ID: i-010faa5b0e36c4cdf
+
+aws ec2 stop-instances --instance-ids i-010faa5b0e36c4cdf
+
+{
+    "StoppingInstances": [
+        {
+            "InstanceId": "i-010faa5b0e36c4cdf", 
+            "CurrentState": {
+                "Code": 64, 
+                "Name": "stopping"
+            }, 
+            "PreviousState": {
+                "Code": 16, 
+                "Name": "running"
+            }
+        }
+    ]
+}
+
+aws ec2 modify-instance-attribute \
+--instance-id i-010faa5b0e36c4cdf \
+--instance-type "{\"Value\": \"t2.micro\"}"
+
+aws ec2 start-instances --instance-ids i-010faa5b0e36c4cdf
+
+aws ec2 describe-instances \
+--instance-ids i-010faa5b0e36c4cdf \
+--query "Reservations[*].Instances[*].[InstanceType,PublicDnsName,PublicIpAddress,State.Name]"
+
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@cli-host ~]$ aws configure
+AWS Access Key ID [None]: Mj58EJ9mJdVlNC6iTXrExZY807qc5IFPi0beX9j+
+AWS Secret Access Key [None]: AKIAVWM6ANRH2CZ46ATB
+Default region name [None]: us-east-1
+Default output format [None]: json
+[ec2-user@cli-host ~]$ aws ec2 describe-instances \
+> --filters "Name=tag:Name,Values= MomPopCafeInstance" \
+> --query "Reservations[*].Instances[*].InstanceId"
+
+An error occurred (AuthFailure) when calling the DescribeInstances operation: AWS was not able to validate the provided access credentials
+[ec2-user@cli-host ~]$ aws configure
+AWS Access Key ID [****************X9j+]: ASIAVWM6ANRHYYW7M2GO
+AWS Secret Access Key [****************6ATB]: Lwwj5KzH0WGiqQegDcCqyXux0nrac+Mx/UryFJ6/
+Default region name [us-east-1]: 
+Default output format [json]: 
+[ec2-user@cli-host ~]$ aws ec2 describe-instances --filters "Name=tag:Name,Values= MomPopCafeInstance" --query "Reservations[*].Instances[*].InstanceId"
+
+An error occurred (AuthFailure) when calling the DescribeInstances operation: AWS was not able to validate the provided access credentials
+[ec2-user@cli-host ~]$ aws configure
+AWS Access Key ID [****************M2GO]: AKIAVWM6ANRH2CZ46ATB
+AWS Secret Access Key [****************FJ6/]: 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
+Default region name [us-east-1]: 
+Default output format [json]: 
+[ec2-user@cli-host ~]$ aws ec2 describe-instances --filters "Name=tag:Name,Values= MomPopCafeInstance" --query "Reservations[*].Instances[*].InstanceId"
+[
+    [
+        "i-010faa5b0e36c4cdf"
+    ]
+]
+[ec2-user@cli-host ~]$ MomPopCafeInstance Instance ID: i-010faa5b0e36c4cdf
+-bash: MomPopCafeInstance: command not found
+[ec2-user@cli-host ~]$ aws ec2 stop-instances --instance-ids i-010faa5b0e36c4cdf
+{
+    "StoppingInstances": [
+        {
+            "InstanceId": "i-010faa5b0e36c4cdf", 
+            "CurrentState": {
+                "Code": 64, 
+                "Name": "stopping"
+            }, 
+            "PreviousState": {
+                "Code": 16, 
+                "Name": "running"
+            }
+        }
+    ]
+}
+[ec2-user@cli-host ~]$ aws ec2 modify-instance-attribute \
+> --instance-id <MomPopCafeInstance Instance ID> \
+> --instance-type "{\"Value\": \"t2.micro\"}"
+-bash: MomPopCafeInstance: No such file or directory
+[ec2-user@cli-host ~]$ aws ec2 modify-instance-attribute \
+> --instance-id i-010faa5b0e36c4cdf \
+> --instance-type "{\"Value\": \"t2.micro\"}"
+[ec2-user@cli-host ~]$ aws ec2 start-instances --instance-ids i-010faa5b0e36c4cdf
+{
+    "StartingInstances": [
+        {
+            "InstanceId": "i-010faa5b0e36c4cdf", 
+            "CurrentState": {
+                "Code": 0, 
+                "Name": "pending"
+            }, 
+            "PreviousState": {
+                "Code": 80, 
+                "Name": "stopped"
+            }
+        }
+    ]
+}
+[ec2-user@cli-host ~]$ aws ec2 describe-instances \
+> --instance-ids <MomPopCafeInstance Instance ID> \
+> --query "Reservations[*].Instances[*].[InstanceType,PublicDnsName,PublicIpAddress,State.Name]"
+-bash: MomPopCafeInstance: No such file or directory
+[ec2-user@cli-host ~]$ aws ec2 describe-instances \
+> --instance-ids i-010faa5b0e36c4cdf \
+> --query "Reservations[*].Instances[*].[InstanceType,PublicDnsName,PublicIpAddress,State.Name]"
+[
+    [
+        [
+            "t2.micro", 
+            "ec2-3-227-246-135.compute-1.amazonaws.com", 
+            "3.227.246.135", 
+            "running"
+        ]
+    ]
+]
+
+Downsized MomPopCafeInstance Public DNS Name: ec2-3-227-246-135.compute-1.amazonaws.com
+Downsized MomPopCafeInstance Public IP Address: 3.227.246.135
+
+http://ec2-3-227-246-135.compute-1.amazonaws.com/mompopcafe
+
+$10.32 of saving per month.
