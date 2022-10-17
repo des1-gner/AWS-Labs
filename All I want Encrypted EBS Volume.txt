@@ -1,0 +1,80 @@
+{
+    "Version": "2012-10-17",
+    "Id": "mod-module-1",
+    "Statement": [
+        {
+            "Sid": "Enable IAM User Permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::484545100721:root"
+            },
+            "Action": "kms:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for Key Administrators",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::484545100721:role/AWSLabsUser-sdhSu9W4Tq4pv8jUv22KqZ"
+            },
+            "Action": [
+                "kms:Create*",
+                "kms:Describe*",
+                "kms:Enable*",
+                "kms:List*",
+                "kms:Put*",
+                "kms:Update*",
+                "kms:Revoke*",
+                "kms:Disable*",
+                "kms:Get*",
+                "kms:Delete*",
+                "kms:TagResource",
+                "kms:UntagResource",
+                "kms:ScheduleKeyDeletion",
+                "kms:CancelKeyDeletion"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow use of the key",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::484545100721:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                    "arn:aws:iam::484545100721:root",
+                    "arn:aws:iam::484545100721:role/AWSLabsUser-sdhSu9W4Tq4pv8jUv22KqZ"
+                ]
+            },
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow attachment of persistent resources",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::484545100721:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                    "arn:aws:iam::484545100721:root",
+                    "arn:aws:iam::484545100721:role/AWSLabsUser-sdhSu9W4Tq4pv8jUv22KqZ"
+                ]
+            },
+            "Action": [
+                "kms:CreateGrant",
+                "kms:ListGrants",
+                "kms:RevokeGrant"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "kms:GrantIsForAWSResource": "true"
+                }
+            }
+        }
+    ]
+}
